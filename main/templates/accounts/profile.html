@@ -16,7 +16,7 @@
            {{user.userprofile.phone}} phone </br>
            {{user.userprofile.image.url}}  </br>
          
-           <img src="./944.jpg" width="240">
+           <img src="{{user.userprofile.image.url}}" width="240">
 
        </p>
        <button> <a href="{% url 'logout' %}">LOGOUT</a> </button>

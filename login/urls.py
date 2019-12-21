@@ -16,12 +16,12 @@ urlpatterns = [
     path('accounts/',include('main.urls')),
     #path('accounts/',include('main.urls',namespace='main')),
     url(r'^$',views.login_redirect,name='login_redirect'),
-]
+] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 """
 NAMESPACE :-
 always assign it the value of the app you want to use in 
 Plus point is when you assign different urls the same name in different apps and then you can easily direct to the  particular
-app url using reverse as :---- path=revers('main:logout').lstrip('/')
+app url using reverse as :---- path=reverse('main:logout').lstrip('/')
 
 
 """
