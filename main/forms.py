@@ -2,6 +2,8 @@ from django import forms
 from django.contrib.auth.models import User
 from django.contrib.auth.forms import UserCreationForm, UserChangeForm
 #from django.db import models
+#from uploads.core.models import Document
+from .models import UserProfile
 
 class RegisterationForm(UserCreationForm):
     email=forms.EmailField(required=True)
@@ -27,3 +29,7 @@ class EditProfile(UserChangeForm):
         model=User
         fields=('first_name','email','password')
         exclude=()
+class UploadFile(forms.ModelForm):
+    class Meta:
+        model = UserProfile
+        fields = ('file','file_name')

@@ -8,18 +8,23 @@
     <h1> Login .html </h1>
     <div class="container">
 <h1> Welcome </h1>
+{% if user.is_authenticated %}
+<meta http-equiv="refresh"
+        content="0; url = {%url 'profile'%}" />
+<h1> {{myName}}</h1>
+<ul>
+    {% for i in numbers %}
+    <li>{{i}}</li>
+    {% endfor %} 
+</ul>
+{%else%}
 Login here !
 <form method="post">
     {% csrf_token %}
     {{ form.as_p }}  <!--as_p means as paragraph-->
     <button type="submit" > Login </button>
 </form>
+{% endif %}
     </div>
-    <h1> {{myName}}</h1>
-    <ul>
-        {% for i in numbers %}
-        <li>{{i}}</li>
-        {% endfor %} 
-    </ul>
 </body>
 </html>

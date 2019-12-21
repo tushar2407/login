@@ -20,12 +20,14 @@ admin.site.register(<class name>)
 
 """
 class UserProfile(models.Model):
-    user=models.OneToOneField(User,on_delete=True)
+    user=models.OneToOneField(User,on_delete=models.CASCADE,default=None,null=True)
     description=models.CharField(max_length=100,default='')
     city=models.CharField(max_length=256,default='')
     link=models.CharField(max_length=256,default='')
     phone=models.IntegerField(default=0)
     image=models.ImageField(upload_to='profile_image',blank=True)
+    file=models.FileField(upload_to='profile_image',blank=True)
+    file_name=models.CharField(max_length=256)
     '''
     Now UsserProfileManager allows me to access queryset in a way i defined
     The variable name with which i define UserProfileManager can now be used to access the objects in shell 
